@@ -1,0 +1,33 @@
+@api = http://localhost:4000/proyects
+GET {{api}}
+
+###
+GET {{api}}/2
+
+###
+GET {{api}}/count
+
+###
+POST {{api}}
+Content-Type: application/json
+
+{
+    "name": "TEST POST 3",
+    "startDate": "2023-03-19",
+    "finishDate": "2023-06-20",
+    "price": 4000000
+}
+
+###
+DELETE {{api}}/6
+
+###
+PUT {{api}}/1
+Content-Type: application/json
+
+{
+    "name": "PRIMER PROYECTO PRUEBA PUT",
+    "startDate": "2023-03-19",
+    "finishDate": "2023-06-20",
+    "price": 4350000
+}
