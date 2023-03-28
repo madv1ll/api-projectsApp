@@ -8,6 +8,7 @@ import { options } from "./swaggerOptions.js";
 const specs = swaggerJSDoc(options);
 
 import proyectRoutes from "./routes/proyect.js";
+import itemRoutes from "./routes/item.js";
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(morgan("dev"));
 app.use(express.json());
 
 app.use(proyectRoutes);
+app.use(itemRoutes);
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(specs));
 
 export default app;

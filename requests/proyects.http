@@ -1,14 +1,14 @@
-@api = http://localhost:4000/proyects
-GET {{api}}
+@api = http://localhost:4000
+GET {{api}}/proyects
 
 ###
-GET {{api}}/2
+GET {{api}}/proyects/2
 
 ###
-GET {{api}}/count
+GET {{api}}/proyects/count
 
 ###
-POST {{api}}
+POST {{api}}/proyects
 Content-Type: application/json
 
 {
@@ -19,10 +19,10 @@ Content-Type: application/json
 }
 
 ###
-DELETE {{api}}/6
+DELETE {{api}}/proyects/6
 
 ###
-PUT {{api}}/1
+PUT {{api}}/proyects/1
 Content-Type: application/json
 
 {
@@ -31,3 +31,40 @@ Content-Type: application/json
     "finishDate": "2023-06-20",
     "price": 4350000
 }
+
+#========================================| ITEMS |===========================================================
+
+###
+GET {{api}}/items/2
+
+###
+GET {{api}}/items/desc/2
+
+###
+POST {{api}}/items
+Content-Type: application/json
+
+{
+    "name": "ITEMS POST",
+    "unitPrice": 1000,
+    "quantity": 2,
+    "totalPrice": 2000,
+    "proyectId": 2,
+    "purchaseDate": "2023/03/27"
+}
+
+###
+PUT {{api}}/items/8
+Content-Type: application/json
+
+{
+    "name": "ITEMS POST MODIFIED",
+    "unitPrice": 1000,
+    "quantity": 2,
+    "totalPrice": 2000,
+    "proyectId": 2,
+    "purchaseDate": "2023/03/27"
+}
+
+###
+DELETE {{api}}/items/10
