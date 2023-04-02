@@ -68,3 +68,26 @@ Content-Type: application/json
 
 ###
 DELETE {{api}}/items/10
+
+#========================================| ITEMS |===========================================================
+###
+GET {{api}}/employees/3
+
+###
+GET {{api}}/employees/desc/1
+
+###
+POST {{api}}/employees
+Content-Type: application/json
+
+{
+    "name": "employee",
+    "lastname": "POST",
+    "startdate": "20230402",
+    "finishdate": "20240402",
+    "projectid": 3,
+    "salary": 25000
+}
+
+###
+DELETE {{api}}/employees/8
