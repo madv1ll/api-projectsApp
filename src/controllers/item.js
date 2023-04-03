@@ -1,12 +1,12 @@
 import { connect } from "../database";
 
 export const getItems = async (req, res) => {
-    const {rows} = await connect.query("SELECT id, name, unitprice, quantity, totalprice, proyectid, TO_CHAR(purchasedate, 'DD-MM-YYYY') FROM item WHERE proyectid = $1 ORDER BY id ASC", [req.params.proyectid]);
+    const {rows} = await connect.query("SELECT id, name, unitprice, quantity, totalprice, proyectid, TO_CHAR(purchasedate, 'DD-MM-YYYY') AS purchasedate FROM item WHERE proyectid = $1 ORDER BY id ASC", [req.params.proyectid]);
     res.json(rows);
 }
 
 export const getItem = async (req, res) => {
-    const {rows} = await connect.query("SELECT id, name, unitprice, quantity, totalprice, proyectid, TO_CHAR(purchasedate, 'DD-MM-YYYY') FROM item WHERE id = $1", [req.params.id]);
+    const {rows} = await connect.query("SELECT id, name, unitprice, quantity, totalprice, proyectid, TO_CHAR(purchasedate, 'DD-MM-YYYY') AS purchasedate FROM item WHERE id = $1", [req.params.id]);
     res.json(rows);
 };
 

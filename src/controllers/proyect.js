@@ -1,11 +1,11 @@
 import { connect } from "../database";
 
 export const getProyects = async (req, res) => {
-    const {rows} = await connect.query("SELECT id, name, TO_CHAR(startdate, 'DD-MM-YYYY'), TO_CHAR(finishdate, 'DD-MM-YYYY'), price FROM proyect ORDER BY id ASC");
+    const {rows} = await connect.query("SELECT id, name, TO_CHAR(startdate, 'DD-MM-YYYY') AS startdate, TO_CHAR(finishdate, 'DD-MM-YYYY') AS finishdate, price FROM proyect ORDER BY id ASC");
     res.json(rows);
 };
 export const getProyect = async (req, res) => {
-    const {rows} = await connect.query("SELECT id, name, TO_CHAR(startdate, 'DD-MM-YYYY'), TO_CHAR(finishdate, 'DD-MM-YYYY'), price FROM proyect WHERE id =$1 ",[req.params.id]);
+    const {rows} = await connect.query("SELECT id, name, TO_CHAR(startdate, 'DD-MM-YYYY') AS startdate, TO_CHAR(finishdate, 'DD-MM-YYYY') AS finishdate, price FROM proyect WHERE id =$1 ",[req.params.id]);
     res.json(rows[0]);
 };
 export const getProyectCount = async (req, res) => {
