@@ -1,7 +1,7 @@
 import { connect } from "../database";
 
 export const getEmployees = async (req, res) => {
-    const {rows} = await connect.query("SELECT id, name, lastname, TO_CHAR(startdate, 'DD-MM-YYYY') AS startdate, TO_CHAR(finishdate, 'DD-MM-YYYY') AS finishdate, projectid FROM employee WHERE projectid = $1 ORDER BY id ASC", [req.params.projectid]);
+    const {rows} = await connect.query("SELECT id, name, lastname, TO_CHAR(startdate, 'DD-MM-YYYY') AS startdate, TO_CHAR(finishdate, 'DD-MM-YYYY') AS finishdate, projectid, salary FROM employee WHERE projectid = $1 ORDER BY id ASC", [req.params.projectid]);
     res.json(rows);
 };
 
