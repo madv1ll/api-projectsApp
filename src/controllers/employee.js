@@ -49,3 +49,8 @@ export const updateEmployeeAssistance = async (req, res) => {
     const {rowCount} = await connect.query("UPDATE employee_assistance SET workdays = $1 WHERE employeeid = $2", [req.body.days, req.params.employeeId]);
     res.json({rowCount});
 };
+
+export const getEmployeeAssistance = async (req, res) => {
+    const {rows} = await connect.query("SELECT * FROM employee_assistance WHERE employee_id = $1", [req.params.employeeId]);
+    res.json(rows);
+};

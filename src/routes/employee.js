@@ -120,6 +120,20 @@ router.delete("/employees/:employeeId", deleteEmployee);
 /**
  * @swagger
  * /employees/{employeeId}/assistance:
+ *  get:
+ *   summary: Get an employee assistance
+ *   tags: [Employees]
+ *   parameters:parameters:
+ *    - in: path
+ *      name: employeeId
+ *      required: true
+ *      description: The id of the employee
+ */
+router.get("/employees/:employeeId/assistance",getEmployeeAssistance);
+
+/**
+ * @swagger
+ * /employees/{employeeId}/assistance:
  *  post:
  *  summary: Assistance of employee
  *  tags: [Employees]
