@@ -41,3 +41,11 @@ CREATE TABLE IF NOT EXISTS employee (
 );
 INSERT INTO employee (name, lastName, startDate, finishDate, salary, projectId) VALUES ('Kevin', 'Tobar', now(), now(), 2500000, 2);
 INSERT INTO employee (name, lastName, startDate, finishDate, salary, projectId) VALUES ('Martin', 'Tobar', now(), now(), 2500000, 2);
+
+CREATE TABLE IF NOT EXISTS emlpoyee_assistance (
+    id SERIAL NOT NULL,
+    PRIMARY KEY (id),
+    employee_id INT,
+    FOREIGN KEY (employee_id) REFERENCES employee(id) ON DELETE CASCADE,
+    workDays INT NOT NULL
+);

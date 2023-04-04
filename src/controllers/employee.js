@@ -24,6 +24,7 @@ export const saveEmployee = async (req, res) => {
         req.body.finishdate,
         req.body.projectid,
         req.body.salary]);
+    await connect.query("INSERT INTO employee_assitance (employee_id, workDays) VALUES ($1, 0)",[req.body.employee_id, req]);
     res.json({rowCount});
 };
 
@@ -41,5 +42,10 @@ export const updateEmployee = async (req, res) => {
 
 export const deleteEmployee = async (req, res) => {
     const {rowCount} = await connect.query('DELETE FROM employee WHERE id = $1', [req.params.employeeId]);
+    res.json({rowCount});
+};
+
+export const updateEmployeeAssistance = async (req, res) => {
+    const {rowCount} = await connect.query("UPDATE employee_assistance SET workdays = $1 WHERE employeeid = $2", [req.body.days, req.params.employeeId]);
     res.json({rowCount});
 };

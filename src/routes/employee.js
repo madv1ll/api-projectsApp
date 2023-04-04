@@ -117,4 +117,22 @@ router.put("/employees/:employeeId", updateEmployee);
  */
 router.delete("/employees/:employeeId", deleteEmployee);
 
+/**
+ * @swagger
+ * /employees/{employeeId}/assistance:
+ *  post:
+ *  summary: Assistance of employee
+ *  tags: [Employees]
+ *  parameters:
+ *   - in: path
+ *     name: employeeId
+ *     required: true
+ *     description: The id of the employee
+ *   - in: body
+ *     name: days
+ *     required: true
+ *     description: The days of the employee's assistance
+ */
+router.post("/employees/:employeeId/assistance", updateEmployeeAssistance);
+
 export default router;
